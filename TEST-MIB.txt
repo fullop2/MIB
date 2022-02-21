@@ -1,0 +1,44 @@
+TEST-MIB DEFINITIONS ::= BEGIN
+
+IMPORTS
+  OBJECT-TYPE, MODULE-IDENTITY, Integer32, enterprises
+    FROM SNMPv2-SMI
+  DisplayString
+    FROM SNMPv2-TC;
+
+myTest MODULE-IDENTITY
+  LAST-UPDATED "202202100000Z"
+  ORGANIZATION "fullop"
+  CONTACT-INFO "fullop"
+  DESCRIPTION  "Just For Test"
+  REVISION  "202202100000Z"
+  DESCRIPTION "This file defines the test"
+  ::= { enterprises 4444 }
+
+hello OBJECT-TYPE
+  SYNTAX Integer32 (0..65536)
+  MAX-ACCESS read-create
+  STATUS current
+  DESCRIPTION
+  "test hello"
+  ::= { myTest 1 }
+
+foo OBJECT-TYPE
+  SYNTAX DisplayString
+  MAX-ACCESS read-create
+  STATUS current
+  DESCRIPTION
+  "log message"
+  ::= { myTest 2 }
+
+bar OBJECT-TYPE
+  SYNTAX DisplayString
+  MAX-ACCESS read-create
+  STATUS current
+  DESCRIPTION
+  "log message"
+  ::= { myTest 3 }
+
+
+
+END
